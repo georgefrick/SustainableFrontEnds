@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Sustainable Front Ends</title>
+
+    <meta name="description" content="Slides for presentation about sustainable front end architecture">
+    <meta name="author" content="George Frick">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood_gjf.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <style>
+        .vk_gy {
+            color: #878787 !important;
+            font-size: 0.85em !important;
+        }
+
+        .mg_top {
+            text-align: left;
+            margin-top: 2em;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>Sustainable</h1>
+            <h1>Front Ends</h1>
+            <p><i>by</i> George Frick</p>
+            <aside class="notes">
+                Today we're going to talk about front end architecture, which can feel like a dark topic. It should be considered an introduction, where I'll
+                try to talk about some macro topics, and then dig into some actionable steps at the micro level.
+                I'd like you to take away this: We should be making the same good architectural considerations for our front end code that we do for our backend.
+            </aside>
+        </section>
+
+
+        <!-- Who am i? -->
+        <section data-background="content/skyline2.jpg">
+            <iframe src="content/deep-blue/george_cv.html" width="800" height="583"
+                    frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+                    style=" max-height: 583px; max-width: 1024px;" > </iframe>
+            <aside class="notes">
+                I'm George Frick, a Technical Architect at Nvisia and a Milwaukee native. -introduce yourself-
+            </aside>
+        </section>
+
+        <section>
+            <h1>sus·tain·a·ble</h1>
+            <p>
+            <h4>adjective</h4>
+            <ol>
+                <li>Able to be maintained at a certain rate or level.<br/>
+                    <span class="vk_gy">"sustainable fusion reactions"</span>
+                </li>
+                <li>Able to be upheld or defended.<br/>
+                    <span class="vk_gy">"sustainable definitions of good educational practice"</span>
+                </li>
+            </ol>
+            </p>
+            <aside class="notes">
+                So what do I mean by Sustainable? We can refer to the definition to dig out some insight. -read definition-
+                Amazingly, we seem to focus on the second definition, and only in the short term. But let's talk about why.
+
+            </aside>
+        </section>
+
+        <section>
+            <h1>Why?</h1>
+            <p>
+            <ol>
+                <li>Churning the same foundation and features.</li>
+                <li>Front of the learning curve.</li>
+                <li>Lack of business focus.</li>
+                <li>Doesn't prevent new techniques, and determines which.</li>
+            </ol>
+            </p>
+            <aside class="notes">
+                a new application means spending a large portion of our time on foundations like security, layout,
+                build process, etc.
+                Developers learning the new framework, which lowers their productivity especially
+                if it's a very new framework and there aren't established best practices.
+                So when we start over, we're re-focusing on these basics, when really we want to build the features
+                and technology that will differentiate our business in the market place. We're unable to focus on
+                doing really cool things when we start again.
+                <h3>Let's talk about the beginning of a project.</h3>
+            </aside>
+        </section>
+
+        <section data-background="content/all-frameworks.png">
+            <aside class="notes">
+                This is generally what we do - we pick a framework/library, and we're done. This is generally picked
+                based on popularity, and then the benefits of the framework are conveyed as why it was chosen.
+                BUT, frameworks are contributors of architectural ideas.
+                We have requirements, and we need an architecture based on our goals.
+                We do have to understand that modern frameworks will in some way be prescribing how we work.
+            </aside>
+        </section>
+
+        <section>
+            <h1>Two Parts</h1>
+            <ol>
+                <li class="fragment">Planning our build through good architecture.</li>
+                <li class="fragment">Following through with best practices.</li>
+            </ol>
+            <aside class="notes">
+                We have to make more complete decisions at the beginning of a project, we have to consider our front end architecture the same
+                way we do for our services. We then have to follow that up, with good habits while developing.
+                Our goal is for the framework to be a layer in your architecture, and not the container for it.
+                <hr/>
+                We'll talk about the first from the architectural level, and then the second will be a series of tips we'll look at.
+            </aside>
+        </section>
+
+        <section data-background="content/blocks.jpg">
+            <h1>Front End Architecture</h1>
+            <p>
+            <h4 class="fragment mg_top">“a collection of tools and processes that aim to improve the quality of our
+                front-end code while creating a more efficient and sustainable workflow.” - <span class="vk_gy">Micah Godbolt</span>
+            </h4>
+
+            </p>
+            <aside class="notes">
+                So.. front end architecture. What is it?
+                <hr/>
+                We don't want the tools to become the master.
+                We are going to use architecture, to be sustainable.
+            </aside>
+        </section>
+
+        <section>
+            <h3>Architecture For Sustainability</h3>
+            <ol>
+                <li>Components - the breadth of topics to consider.</li>
+                <li>Approach - driving your architecture based on needs.</li>
+                <li>Questions - good questions to ask.</li>
+            </ol>
+            <aside class="notes">
+                By looking at the components up front, we can consider what we're building.
+                We'll cover this in three parts - the components of your architecture, the approach to addressing your needs,
+                and questions you can ask about both future and existing projects.
+            </aside>
+        </section>
+
+        <section>
+            <section>
+                <h1>1. Components</h1>
+                <ul>
+                    <li>Documentation</li>
+                    <li>Security</li>
+                    <li>Build Process</li>
+                    <li>Testing</li>
+                    <li>Dependency Management</li>
+                    <li>Performance</li>
+                    <li style="font-style: italic">http://webdevchecklist.com</li>
+                </ul>
+                <aside class="notes">
+                    Not completely comprehensive, but covers the most important. For more details, use webdevchecklist.
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Documentation</h2>
+                <ul>
+                    <li>Style Guide</li>
+                    <li>Coding Standards</li>
+                    <li>Roll on document</li>
+                </ul>
+                <aside class="notes">
+                    I don't mean code documentation. This includes some very important documents like your style guide,
+                    which may include a branding document provided to you. Developers can't build consistently without
+                    this, and you should expand the branding guide to be a complete style guide.
+                    <hr/>
+                    You'll also want a set of coding standards, which these days can be codified into a .editorconfig
+                    file and put into the repo with the projects code. I'd still have a document, or officially reference
+                    and existing one. Start at editorconfig.org
+                    <hr/>
+                    How will you roll on new developers? What do they need to know.
+                </aside>
+            </section>
+            <section>
+                <h2>Security</h2>
+                <ul>
+                    <li>Users</li>
+                    <li>Data</li>
+                </ul>
+                <aside class="notes">
+                    I want to mention security briefly; it shouldn't be as much the concern of the front end architect
+                    as the back end. It should be a company wide concern, and be based on the principle of least
+                    privilege. You should not hide data the user doesn't have access to; it should never arrive
+                    from the server. You should not hide actions the user can't take - someone will fire up postman
+                    and send the request by hand. That being said, secure your application and be part of any
+                    security planning and discussions.
+                </aside>
+            </section>
+            <section>
+                <h2>Build Process</h2>
+                <ul>
+                    <li>Build</li>
+                    <li>Packaging</li>
+                    <li>Deployment</li>
+                    <li>Continuous Integration</li>
+                    <li>Cloud / Container</li>
+                </ul>
+                <aside class="notes">
+                    What will your build process look like? Will you rely on the framework? Do you have a dedicated
+                    dev ops team? Is some of this prescribed by the organization. You won't want to choose an approach
+                    that doesn't integrate well here.
+                    <hr/>
+                    Look at how you will compile, package and deploy your project. I may be completely out of your
+                    control, or entirely your responsibility and that changes the scope of what you have to get done.
+                </aside>
+            </section>
+            <section>
+                <h2>Testing</h2>
+                <ul>
+                    <li>Unit Testing</li>
+                    <li>Integration Testing</li>
+                    <li>Stress Testing</li>
+                    <li>Performance Testing</li>
+                    <li>Usability Testing</li>
+                    <li>Acceptance Testing</li>
+                </ul>
+                <aside class="notes">
+                    We tend to deal with testing by saying "Yes, we test". Sometimes you have an existing set of
+                    user testers - and they may or may not trust unit and integration testing!
+                    <hr/>
+                    It's important to relate testing back to sustainability. If your testing is based on dates, times,
+                    people or other specific events; then they have to be planned for. You can't only run the unit tests
+                    on the 1st of the month, and they shouldn't fail on Feb 29th.
+                    <hr/>
+                    Will you be able to reliable test, with the same circumstances - a year from now? This could
+                    be a whole presentation.
+                </aside>
+            </section>
+            <section>
+                <h2>Dependency Management</h2>
+                <ul>
+                    <li>Third Party Services</li>
+                    <li>Third Party Code</li>
+                    <li>Internal Libraries</li>
+                    <li>Frameworks, Libraries, and Tools</li>
+                </ul>
+                <aside class="notes">
+                    In the new JavaScript world, this has become a lot more important. Developers are turning to
+                    Yarn and lock files to keep versions of dependencies fixed. These things are broken on us all
+                    the time!
+                    <hr/>
+                    We're going to look at this later - but a good thing to note here - NPM modules can be stored
+                    in Nexus.
+                    <hr/>
+                    But more central to our point of sustainability; plan for third party services. If you get the
+                    weather from a web service; you should consider how you are going to sustain that going forward.
+                    They could go out of business, or completely change how their API works. They could raise prices.
+                </aside>
+            </section>
+            <section>
+                <h2>Performance</h2>
+                <ul>
+                    <li>Response time of services</li>
+                    <li>Response time of pages</li>
+                    <li>CPU / Server Load</li>
+                    <li>Traffic / Number of users</li>
+                    <li>Third Party Services</li>
+                    <li>Error Rates</li>
+                </ul>
+                <aside class="notes">
+                    I've kept this for last. Because we seem to put it first. We'll use framework X because it's faster.
+                    Faster than what? Is page response time our most important metric? How many users will we have?
+                    <hr/>
+                    It's important to prioritize and focus on what is important here, based on your situation and
+                    requirements. You might focus on security and low error rates for patient billing, while focusing
+                    on traffic and response times for your marketing and home page. This could be an entire conference.
+                </aside>
+            </section>
+
+        </section>
+
+        <section>
+            <section>
+                <h1>2. Approach</h1>
+
+                <aside class="notes">
+                    Let's finally talk frameworks. Maybe your project is small and you don't have any special requirements.
+                    Maybe you think this step is "done", because you are "A React house" and you build everything in React.
+                    <hr/>
+                    But let's just take a look at some architectural alternatives you might make based on your information.
+                    For example, a lot of bloggers and small companies look at their requirements and choose Word Press,
+                    and they find a lot of success.
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Static Website</h2>
+                <table style="width: 80%;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li class=" highlight-green">Fast</li>
+                                <li class=" highlight-green">Cheap</li>
+                                <li class=" highlight-green">SEO</li>
+                                <li class=" highlight-green">Deployment</li>
+
+                            </ul>
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td>
+                            <ul>
+                                <li class=" highlight-red">Complexity</li>
+                                <li class=" highlight-red">Change</li>
+                                <li class=" highlight-red">Dynamic Content</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top: 1em;">
+                    <li style="font-style: italic">Temporary websites, mock-ups, internal information pages.</li>
+                </ul>
+                <aside class="notes">
+                    Fast, affordably developed site with easy SEO and deployment.
+
+                    This is ideal for temporary websites, or information pages that require their own design.
+
+                    While many people will use mocking tools; I prefer to build out a static website -
+                    users can see navigation and get a feel for how they’ll use the app.
+
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Static - Server Generated</h2>
+                <table style="width: 80%;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li class=" highlight-green">Benefits of Static</li>
+                                <li class=" highlight-green">Databases, Webservices, etc</li>
+                                <li class=" highlight-green">Performance</li>
+
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class=" highlight-red">Complexity</li>
+                                <li class=" highlight-red">Change</li>
+                                <li class=" highlight-red">Interactivity</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top: 1em;">
+                    <li style="font-style: italic">Status screens, reporting, internal information sites, blogs, news feeds, and kick-start.</li>
+                </ul>
+                <aside class="notes">
+                    You can build generated status sites using frameworks like Jekyll or wintersmith.
+                    Sometimes, users desire more interactivity.
+                    Handle change better than a static site
+
+                    You can get information from a database, web service, etc.
+                    Another benefit of using a static site generator, as the templates and any code can be used to kick-start a more in-depth project.
+
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Content Management System</h2>
+                <table style="width: 80%;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li class=" highlight-green">Out of box features</li>
+                                <li class=" highlight-green">Low cost</li>
+                                <li class=" highlight-green">Fast start</li>
+                                <li class=" highlight-green">User managed content</li>
+
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class=" highlight-red">Maintenance</li>
+                                <li class=" highlight-red">Customization</li>
+                                <li class=" highlight-red">User Learning Curve</li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top: 1em;">
+                    <li style="font-style: italic">Creative content and publicly facing pages with changing designs.</li>
+                </ul>
+                <aside class="notes">
+                    It’s strange to be suggesting this.
+                    You need non-technical people to manage the content of the site.
+                    Out of box features (polls, surveys, analytics, reports, user management).
+                    Don’t use a CMS just to start; there is Yeoman for that.
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Single Page Applications</h2>
+                <table style="width: 80%;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li class=" highlight-green">"Applications"</li>
+                                <li class=" highlight-green">Frameworks</li>
+                                <li class=" highlight-green">Tooling</li>
+                                <li class=" highlight-green">Customization</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class=" highlight-red">Maintenance</li>
+                                <li class=" highlight-red">SEO</li>
+                                <li class=" highlight-red">Memory</li>
+                                <li class=" highlight-red">Performance</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top: 1em;">
+                    <li style="font-style: italic">Highly customized business functionality, data manipulation and workspaces.</li>
+                </ul>
+                <aside class="notes">
+                    In the majority of situations where you are planning an enterprise application; this will fit for you.
+                    Bootstrap application development, ex: Yeoman and many CLIs.
+                    Developers can quickly build out applications that support specific business functions and fit directly to requirements.
+                    More and more, the benefits of static site generation are showing up here as well.
+                    You will have trouble here with switching frameworks, aging code, security, complexity
+                </aside>
+
+            </section>
+
+            <section>
+                <h2>Multi Page Applications</h2>
+                <table style="width: 80%;">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li class=" highlight-green">Frameworks</li>
+                                <li class=" highlight-green">Tooling</li>
+                                <li class=" highlight-green">Customization</li>
+
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class=" highlight-red">Complexity</li>
+                                <li class=" highlight-red">Management</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top: 1em;">
+                    <li style="font-style: italic">Highly focused business functionality, data manipulation and workspaces. </li>
+                    <li style="font-style: italic">Not MVC</li>
+                </ul>
+                <aside class="notes">
+                    A multipage application can still be appropriate and actually strong when you are attempting to get the advantages of SPAs and deal with specific disadvantages. There is actually a small but growing idea here that follow that of micro-services. Micro-front ends. By going back to multi page applications, but using SPA tools and frameworks; we can minimize problems like architectural change, SEO, and complexity.
+
+                    Traditionally a multi-page application would imply MVC and would be tied to some kind of non-restful (or non graph-ql) back end. Forcing developers to work on both, and I don’t recommend that approach.
+
+                    What I can recommend is there can be benefits to building more, smaller applications. As we’ve seen through this talk - you can identify and architect each application according to it’s needs.
+
+                    MPAs have the disadvantage of complexity of management. As the number of projects goes up, maintenance, new features and overall organization can suffer. It takes an approach that manages the applications as a portfolio to do this well.
+
+                </aside>
+
+            </section>
+
+        </section>
+
+        <section>
+            <h1>3. Questions</h1>
+            <ul>
+                <li class="fragment">How will you roll on new developers?</li>
+                <li class="fragment">What metrics are important for the project?</li>
+                <li class="fragment">Is your approach feasible?</li>
+                <li class="fragment">What is your plan when a third party changes something?</li>
+                <li class="fragment">What is the planned lifetime of the project?</li>
+            </ul>
+        </section>
+
+        <section data-background="content/coding-screen.jpg">
+            <h1>Best Practices</h1>
+            <p>
+            <h4 class="fragment mg_top">“commercial or professional procedures that are accepted or prescribed as being correct or most effective.”
+            </h4>
+
+            </p>
+            <aside class="notes">
+                Now that we've talked about the some concerns around architecture, let's be a little more hands on. I'm going to show you some
+                actions you can take to improve future and existing projects. This list is not exhaustive, it's targeted at mistakes I see often
+                and on being impactful.
+            </aside>
+        </section>
+
+        <section >
+            <section>
+                <h1>Don't Inline Logic</h1>
+                <ul>
+                    <li>Locks you into framework</li>
+                    <li>Duplication!</li>
+                    <li>Testing</li>
+                    <li>Modularity</li>
+                </ul>
+                <aside class="notes">
+
+                </aside>
+            </section>
+            <section>
+                	<pre width="90%"><code class="hljs" data-trim contenteditable>
+
+@Injectable()
+export class RoleGuard implements CanActivate {
+
+  constructor(private router: Router, private authService: AuthService) {}
+
+  public canActivate(routeSnapshot: ActivatedRouteSnapshot,
+                      state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
+
+    let neededRole = routeSnapshot.data[“role”];
+
+    if( neededRole === undefined ) {
+       return true;
+    }
+
+    let roles = this.authService.getCurrentUserRoles();
+    let role = roles.find( eachRole => eachRole.roleName === neededRole );
+    return (role !== undefined);
+  }
+}
+					</code></pre>
+            </section>
+            <section>
+                	<pre width="90%"><code class="hljs" data-trim contenteditable>
+
+@Injectable()
+
+export class RoleGuard implements CanActivate {
+
+  constructor(private router: Router, private authService: AuthService) {}
+
+  public canActivate(routeSnapshot: ActivatedRouteSnapshot,
+                             state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
+
+    let neededRole = routeSnapshot.data[“role”];
+
+    return this.authService.isAuthorizedForRole(neededRole); // Observable
+  }
+}
+					</code></pre>
+                <aside class="notes">
+                    Good naming conventions are important.
+                </aside>
+            </section>
+        </section>
+
+
+        <section >
+            <section>
+                <h1>Manage Dependencies</h1>
+                <p>
+                <ul>
+                    <li>Monday morning headaches</li>
+                    <li>Broken CI Pipelines</li>
+                    <li>Dependency Hell</li>
+                </ul>
+
+                </p>
+                <aside class="notes">
+                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
+                </aside>
+            </section>
+            <section>
+                <h2>Don't use it.</h2>
+                <p>
+                <ul>
+                    <li>Is it actively maintained?</li>
+                    <li>How is it tested?</li>
+                    <li>Does it solve a complete set of problems?</li>
+                    <li>It can be found as part of a larger, more useful library.</li>
+                </ul>
+
+                </p>
+                <aside class="notes">
+                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
+                </aside>
+            </section>
+            <section>
+                	<pre width="90%"><code class="hljs" data-trim contenteditable>
+“devDependencies” : {
+
+  “awesome-typscript-loader”: “^2.2.4”,
+
+  “other-tiny-library”: “^2.5.1”
+
+}
+					</code></pre>
+                <aside class="notes">
+                    Good naming conventions are important.
+                </aside>
+            </section>
+            <section>
+                	<pre width="90%"><code class="hljs" data-trim contenteditable>
+“devDependencies” : {
+
+  “awesome-typscript-loader”: “~2.2.4”,
+
+  “other-tiny-library”: “2.5.1”
+
+}
+					</code></pre>
+                <aside class="notes">
+                    Good naming conventions are important.
+                </aside>
+            </section>
+            <section>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
+# THIS IS AN AUTOGENERATED FILE. DO NOT EDIT THIS FILE DIRECTLY.
+# yarn lockfile v1
+package-1@^1.0.0:
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/package-1/-/package-1-1.0.3.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
+package-2@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/package-2/-/package-2-2.0.1.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
+  dependencies:
+    package-4 "^4.0.0"
+					</code></pre>
+                <aside class="notes">
+                    Migrating from npm should be a fairly easy process for most users. Yarn can consume the same package.json format as npm, and can install any package from the npm registry.
+                </aside>
+            </section>
+            <section>
+                <h2>Staying Up To Date</h2>
+                <p>
+                <ul>
+                    <li>Do use tool based updates.</li>
+                    <li>https://www.npmjs.com/package/npm-check-updates</li>
+                </ul>
+
+                </p>
+                <aside class="notes">
+                    There are now multiple tools you can use to both analyze your dependencies before update, and to automate
+                    the update in a more compatible way.
+                </aside>
+            </section>
+        </section>
+
+        <section >
+            <section>
+            <h1>Build Libraries</h1>
+            <p>
+            <ul>
+                <li>Code Reuse & Sharing</li>
+                <li>Independence</li>
+                <li>Framework Freedom</li>
+                <li>Proper Retirement</li>
+                <li>Future Planning</li>
+            </ul>
+            </p>
+            <aside class="notes">
+                <ul>
+                    <li>Code Reuse - across projects and frameworks and the frontend/backend.</li>
+                    <li>Independence - libraries can be independently worked on and tested.</li>
+                    <li>Framework Freedom - code can be built to work with a framework (calendar), or alone (calculations)</li>
+                    <li>Proper Retirement - code can be retired as appropriate; such as replacement with a more powerful commercial library. </li>
+                    <li>Proper Retirement - if you are starting something new, you can plan which libraries to use or replace. </li>
+                </ul>
+
+            </aside>
+            </section>
+            <section>
+                <h2>Building Libraries</h2>
+                <p>
+                <ul>
+
+                </ul>
+
+                </p>
+                <aside class="notes">
+
+                </aside>
+            </section>
+            <section>
+                <h5>1. Create the library</h5>
+                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+$ npm init
+version: (1.0.0)
+description: An example utility package.
+entry point: (index.js)
+git repository:
+author: George Frick
+license: (ISC)
+About to write to C:\dev\projects\gjf-utils\package.json: {
+  "name": "gjf-utils",
+  "version": "1.0.0",
+  "description": "An example utility package.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Frick",
+  "license": "ISC"
+}
+Is this ok? (yes)
+					</code></pre>
+                <aside class="notes">
+                    You can create a new project with npm init, or use one of the many yeoman generators to kick start this.
+                </aside>
+            </section>
+            <section>
+                <h5>2. Add Code</h5>
+                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+module.exports = {
+  hello: function() { return "Hello Web 414"; }
+};
+					</code></pre>
+                <aside class="notes">
+                    We're going to go with some pretty simple code, but your project can be as complex as any.
+                </aside>
+            </section>
+            <section>
+                <h5>3. Publish (NPM or Nexus)</h5>
+                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+$ npm login
+Username: georgejfrick
+Password: $$$$$$$$$$$$$$$$$$$
+Email: (this IS public) george.frick@gmail.com
+Logged in as georgejfrick on https://registry.npmjs.org/.
+
+$ npm publish
++ gjf-utils@1.0.0
+
+					</code></pre>
+                <aside class="notes">
+                    We're going to publish to NPM here, but you can publish to a private Nexus.
+                </aside>
+            </section>
+            <section>
+                <h5>3.b. Publish to Nexus</h5>
+                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+{
+  "name": "gjf-utils",
+  "version": "1.0.0",
+  "description": "An example utility package.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "http://nexus.nvisia.com:8081/repository/npm-private/"
+  }
+  "author": "George Frick",
+  "license": "ISC"
+}
+
+					</code></pre>
+                <aside class="notes">
+                    You can publish to nexus by specifying the publishing registry.
+                    You can edit the .npmrc file to change the registry you download from, including proxying.
+                </aside>
+            </section>
+            <section>
+                <h5>4. Use</h5>
+                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+$ npm install gjf-utils
+
+var test = require('gjf-utils');
+console.log(test.hello());
+					</code></pre>
+                <aside class="notes">
+                    You can publish to nexus by specifying the publishing registry.
+                    You can edit the .npmrc file to change the registry you download from, including proxying.
+                </aside>
+            </section>
+        </section>
+
+        <section style="text-align: left;">
+            <h1>Summary</h1>
+            <p>
+                - Plan based on needs. <br>
+                - Use good practices. <br/>
+                - Escape the churn and solve more important problems.
+            </p>
+            <p>
+               Questions?
+            </p>
+        </section>
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        keyboard: {
+            9: 'prev', // go to the next slide when the ENTER key is pressed
+            13: 'next' // go to the next slide when the ENTER key is pressed
+
+        },
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+
+<script>
+    if (!navigator.userAgent.match(/(iphone|android)/gi) && !!document.querySelector) {
+        document.querySelector('.share-reveal').style.display = 'block';
+        document.querySelector('.fork-reveal').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
