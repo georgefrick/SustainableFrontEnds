@@ -57,12 +57,14 @@
             <h1>Front Ends</h1>
             <p><i>by</i> George Frick</p>
             <aside class="notes">
-                Today we're going to talk about front end architecture, which can feel like a dark topic. It should be considered an introduction, where I'll
-                try to talk about some macro topics, and then dig into some actionable steps at the micro level.
-                I'd like you to take away this: We should be making the same good architectural considerations for our front end code that we do for our backend.
+                <ul>
+                    <li>front end architecture</li>
+                    <li>considered an introduction</li>
+                    <li>macro topics, then micro</li>
+                    <li>take away: We should be making the same good architectural considerations for our front end code that we do for our backend.</li>
+                </ul>
             </aside>
         </section>
-
 
         <!-- Who am i? -->
         <section data-background="content/skyline2.jpg">
@@ -88,9 +90,12 @@
             </ol>
             </p>
             <aside class="notes">
-                So what do I mean by Sustainable? We can refer to the definition to dig out some insight. -read definition-
-                Amazingly, we seem to focus on the second definition, and only in the short term. But let's talk about why.
-
+                <ul>
+                    <li>what do I mean by Sustainable?</li>
+                    <li>-read definition-</li>
+                    <li>focus on second, and only in short time</li>
+                    <li>lets talk about why?</li>
+                </ul>
             </aside>
         </section>
 
@@ -105,6 +110,10 @@
             </ol>
             </p>
             <aside class="notes">
+                <ul>
+                    <li>Can't do cool stuff when always starting over</li>
+                    <li>Let's talk about the beginning of a project.</li>
+                </ul>
                 a new application means spending a large portion of our time on foundations like security, layout,
                 build process, etc.
                 Developers learning the new framework, which lowers their productivity especially
@@ -112,17 +121,18 @@
                 So when we start over, we're re-focusing on these basics, when really we want to build the features
                 and technology that will differentiate our business in the market place. We're unable to focus on
                 doing really cool things when we start again.
-                <h3>Let's talk about the beginning of a project.</h3>
             </aside>
         </section>
 
         <section data-background="content/all-frameworks.png">
             <aside class="notes">
-                This is generally what we do - we pick a framework/library, and we're done. This is generally picked
-                based on popularity, and then the benefits of the framework are conveyed as why it was chosen.
-                BUT, frameworks are contributors of architectural ideas.
-                We have requirements, and we need an architecture based on our goals.
-                We do have to understand that modern frameworks will in some way be prescribing how we work.
+                <ul>
+                    <li>we pick a framework/library, and we're done.</li>
+                    <li>based on popularity</li>
+                    <li>BUT, frameworks are contributors of architectural ideas</li>
+                    <li> We have requirements, and we need an architecture based on our goals.</li>
+                    <li>  We do have to understand that modern frameworks will in some way be prescribing how we work.</li>
+                </ul>
             </aside>
         </section>
 
@@ -133,10 +143,13 @@
                 <li class="fragment">Following through with best practices.</li>
             </ol>
             <aside class="notes">
-                We have to make more complete decisions at the beginning of a project, we have to consider our front end architecture the same
-                way we do for our services. We then have to follow that up, with good habits while developing.
-                Our goal is for the framework to be a layer in your architecture, and not the container for it.
-                <hr/>
+                <ul>
+                    <li>make more complete decisions at the beginning of a project</li>
+                    <li>we have to consider our front end architecture the same
+                        way we do for our services</li>
+                    <li>We then have to follow that up, with good habits while developing.</li>
+                    <li> goal is for the framework to be a layer in your architecture, and not the container for it.</li>
+                </ul>
                 We'll talk about the first from the architectural level, and then the second will be a series of tips we'll look at.
             </aside>
         </section>
@@ -150,10 +163,11 @@
 
             </p>
             <aside class="notes">
-                So.. front end architecture. What is it?
-                <hr/>
-                We don't want the tools to become the master.
-                We are going to use architecture, to be sustainable.
+                <ul>
+                    <li> So.. front end architecture. What is it?</li>
+                    <li>We don't want the tools to become the master.</li>
+                    <li>We are going to use architecture, to be sustainable.</li>
+                </ul>
             </aside>
         </section>
 
@@ -165,9 +179,12 @@
                 <li>Questions - good questions to ask.</li>
             </ol>
             <aside class="notes">
-                By looking at the components up front, we can consider what we're building.
-                We'll cover this in three parts - the components of your architecture, the approach to addressing your needs,
-                and questions you can ask about both future and existing projects.
+                <ul>
+                    <li>By looking at the components up front, we can consider what we're building.</li>
+                    <li>three parts </li>
+                    <li>the components of your architecture, the approach to addressing your needs,
+                        and questions you can ask about both future and existing projects.</li>
+                </ul>
             </aside>
         </section>
 
@@ -197,9 +214,12 @@
                     <li>Roll on document</li>
                 </ul>
                 <aside class="notes">
-                    I don't mean code documentation. This includes some very important documents like your style guide,
-                    which may include a branding document provided to you. Developers can't build consistently without
-                    this, and you should expand the branding guide to be a complete style guide.
+                    <ul>
+                        <li>I don't mean code documentation. </li>
+                        <li>includes some very important documents like your style guide,
+                            which may include a branding document provided to you</li>
+                        <li>you should expand the branding guide to be a complete style guide.</li>
+                    </ul>
                     <hr/>
                     You'll also want a set of coding standards, which these days can be codified into a .editorconfig
                     file and put into the repo with the projects code. I'd still have a document, or officially reference
@@ -213,14 +233,21 @@
                 <ul>
                     <li>Users</li>
                     <li>Data</li>
+                    <li>Company wide concern</li>
+                    <li>Principle of least privilege</li>
                 </ul>
                 <aside class="notes">
+                    <ul>
+                        <li>data should never arrive from server</li>
+                        <li>server should block actions</li>
+                        <li> secure your application and be part of any
+                            security planning and discussions</li>
+                    </ul>
                     I want to mention security briefly; it shouldn't be as much the concern of the front end architect
                     as the back end. It should be a company wide concern, and be based on the principle of least
                     privilege. You should not hide data the user doesn't have access to; it should never arrive
                     from the server. You should not hide actions the user can't take - someone will fire up postman
-                    and send the request by hand. That being said, secure your application and be part of any
-                    security planning and discussions.
+                    and send the request by hand.
                 </aside>
             </section>
             <section>
@@ -711,6 +738,7 @@ package-2@^2.0.0:
                     <li>Framework Freedom - code can be built to work with a framework (calendar), or alone (calculations)</li>
                     <li>Proper Retirement - code can be retired as appropriate; such as replacement with a more powerful commercial library. </li>
                     <li>Proper Retirement - if you are starting something new, you can plan which libraries to use or replace. </li>
+                    <li>Web Components - Polymer, StencilJS, etc. </li>
                 </ul>
 
             </aside>
@@ -758,7 +786,12 @@ Is this ok? (yes)
                 <h5>2. Add Code</h5>
                 <pre width="90%" ><code class="hljs" data-trim contenteditable>
 module.exports = {
-  hello: function() { return "Hello Web 414"; }
+    hello: function () {
+        return "Hello Web 414";
+    },
+    monthlyPayment: function (principle, months, iRate) {
+        return principle * iRate * (Math.pow(1 + iRate, months)) / (Math.pow(1 + iRate, months) - 1);
+    }
 };
 					</code></pre>
                 <aside class="notes">
@@ -811,8 +844,16 @@ $ npm publish
                 <pre width="90%" ><code class="hljs" data-trim contenteditable>
 $ npm install gjf-utils
 
-var test = require('gjf-utils');
-console.log(test.hello());
+    var test = require('gjf-utils');
+
+    var M; //monthly mortgage payment
+    var P = 400000; //principle / initial amount borrowed
+    var I = 3.5 / 100 / 12; //monthly interest rate
+    var N = 30 * 12; //number of payments months
+    M = test.monthlyPayment(P, N, I);
+
+    console.log(test.hello());
+    console.log(M);
 					</code></pre>
                 <aside class="notes">
                     You can publish to nexus by specifying the publishing registry.
