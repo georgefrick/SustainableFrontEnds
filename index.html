@@ -121,6 +121,9 @@
                 So when we start over, we're re-focusing on these basics, when really we want to build the features
                 and technology that will differentiate our business in the market place. We're unable to focus on
                 doing really cool things when we start again.
+				<p>
+				When we are starting over, it should allow to to rebuild the wrong parts, and keep as much of the good as possible.
+				</p>
             </aside>
         </section>
 
@@ -148,7 +151,7 @@
                     <li>we have to consider our front end architecture the same
                         way we do for our services</li>
                     <li>We then have to follow that up, with good habits while developing.</li>
-                    <li> goal is for the framework to be a layer in your architecture, and not the container for it.</li>
+                    <li>the goal is for the framework to be a layer in your architecture, and not the container for it.</li>
                 </ul>
                 We'll talk about the first from the architectural level, and then the second will be a series of tips we'll look at.
             </aside>
@@ -247,7 +250,7 @@
                     as the back end. It should be a company wide concern, and be based on the principle of least
                     privilege. You should not hide data the user doesn't have access to; it should never arrive
                     from the server. You should not hide actions the user can't take - someone will fire up postman
-                    and send the request by hand.
+                    and send the request by hand. Security has to be an onion.
                 </aside>
             </section>
             <section>
@@ -282,7 +285,7 @@
                     We tend to deal with testing by saying "Yes, we test". Sometimes you have an existing set of
                     user testers - and they may or may not trust unit and integration testing!
                     <hr/>
-                    It's important to relate testing back to sustainability. If your testing is based on dates, times,
+                    I want to relate testing back to sustainability. If your testing is based on dates, times,
                     people or other specific events; then they have to be planned for. You can't only run the unit tests
                     on the 1st of the month, and they shouldn't fail on Feb 29th.
                     <hr/>
@@ -304,7 +307,7 @@
                     the time!
                     <hr/>
                     We're going to look at this later - but a good thing to note here - NPM modules can be stored
-                    in Nexus.
+                    in Nexus, JFrog, and host of other platforms.
                     <hr/>
                     But more central to our point of sustainability; plan for third party services. If you get the
                     weather from a web service; you should consider how you are going to sustain that going forward.
@@ -343,7 +346,7 @@
                     <hr/>
                     But let's just take a look at some architectural alternatives you might make based on your information.
                     For example, a lot of bloggers and small companies look at their requirements and choose Word Press,
-                    and they find a lot of success.
+                    and they experience a lot of success.
                 </aside>
 
             </section>
@@ -421,7 +424,8 @@
 
                     You can get information from a database, web service, etc.
                     Another benefit of using a static site generator, as the templates and any code can be used to kick-start a more in-depth project.
-
+					This makes for an inherently more secure and performant dashboard - just regenerate the site on a cycle and don't worry about what the front 
+					end is allowed to do.
                 </aside>
 
             </section>
@@ -445,7 +449,7 @@
                                 <li class=" highlight-red">Maintenance</li>
                                 <li class=" highlight-red">Customization</li>
                                 <li class=" highlight-red">User Learning Curve</li>
-
+                                <li class=" highlight-red">Long Term Business Problems</li>
                             </ul>
                         </td>
                     </tr>
@@ -779,7 +783,7 @@ About to write to C:\dev\projects\gjf-utils\package.json: {
 Is this ok? (yes)
 					</code></pre>
                 <aside class="notes">
-                    You can create a new project with npm init, or use one of the many yeoman generators to kick start this.
+                    You can create a new project with npm init, or use one of the many CLI's or yeoman generators to kick start this.
                 </aside>
             </section>
             <section>
@@ -812,7 +816,7 @@ $ npm publish
 
 					</code></pre>
                 <aside class="notes">
-                    We're going to publish to NPM here, but you can publish to a private Nexus.
+                    We're going to publish to NPM here, but you can publish to a private Nexus, JFrog, Azure, etc.
                 </aside>
             </section>
             <section>
