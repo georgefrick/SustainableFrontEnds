@@ -56,6 +56,7 @@
             <h1>Sustainable</h1>
             <h1>Front Ends</h1>
             <p><i>by</i> George Frick</p>
+            <p>NVISIA LLC</p>
             <aside class="notes">
                 <ul>
                     <li>front end architecture</li>
@@ -93,7 +94,8 @@
                 <ul>
                     <li>what do I mean by Sustainable?</li>
                     <li>-read definition-</li>
-                    <li>focus on second, and only in short time</li>
+                    <li>We tend to focus on the 2nd, but only for the short term</li>
+                    <li>But the first is just as important, and both in the long term</li>
                     <li>lets talk about why?</li>
                 </ul>
             </aside>
@@ -113,14 +115,12 @@
                 <ul>
                     <li>Can't do cool stuff when always starting over</li>
                     <li>Let's talk about the beginning of a project.</li>
+                    <li>new app - large portion of time on foundations: security, layout, build process</li>
+                    <li>developers are learning a new framework, no established best practices</li>
+                    <li>starting over means focusing on basics</li>
+                    <li>we want to focus on features, on differentiating our business in the market place</li>
+                    <li>we want to focus on doing cool things!</li>
                 </ul>
-                a new application means spending a large portion of our time on foundations like security, layout,
-                build process, etc.
-                Developers learning the new framework, which lowers their productivity especially
-                if it's a very new framework and there aren't established best practices.
-                So when we start over, we're re-focusing on these basics, when really we want to build the features
-                and technology that will differentiate our business in the market place. We're unable to focus on
-                doing really cool things when we start again.
 				<p>
 				When we are starting over, it should allow to to rebuild the wrong parts, and keep as much of the good as possible.
 				</p>
@@ -130,11 +130,11 @@
         <section data-background="content/all-frameworks.png">
             <aside class="notes">
                 <ul>
-                    <li>we pick a framework/library, and we're done.</li>
-                    <li>based on popularity</li>
+                    <li>we tend to pick a framework/library, and we're done.</li>
+                    <li>generally based on popularity</li>
                     <li>BUT, frameworks are contributors of architectural ideas</li>
-                    <li> We have requirements, and we need an architecture based on our goals.</li>
-                    <li>  We do have to understand that modern frameworks will in some way be prescribing how we work.</li>
+                    <li>We have requirements, and we need an architecture based on our goals.</li>
+                    <li>Understand that modern frameworks will in some way be prescribing how we work.</li>
                 </ul>
             </aside>
         </section>
@@ -200,6 +200,8 @@
                     <li>Build Process</li>
                     <li>Testing</li>
                     <li>Dependency Management</li>
+                    <li>ADA</li>
+                    <li>Monitoring</li>
                     <li>Performance</li>
                     <li style="font-style: italic">http://webdevchecklist.com</li>
                 </ul>
@@ -219,9 +221,9 @@
                 <aside class="notes">
                     <ul>
                         <li>I don't mean code documentation. </li>
-                        <li>includes some very important documents like your style guide,
-                            which may include a branding document provided to you</li>
-                        <li>you should expand the branding guide to be a complete style guide.</li>
+                        <li>includes very important docs like style guide</li>
+                        <li>branding document provided to you</li>
+                        <li>expand the branding guide to be a complete style guide.</li>
                     </ul>
                     <hr/>
                     You'll also want a set of coding standards, which these days can be codified into a .editorconfig
@@ -264,10 +266,10 @@
                 </ul>
                 <aside class="notes">
                     What will your build process look like? Will you rely on the framework? Do you have a dedicated
-                    dev ops team? Is some of this prescribed by the organization. You won't want to choose an approach
-                    that doesn't integrate well here.
+                    dev ops team? Is some of this prescribed by the organization. You want to choose an approach
+                    that integrates well here.
                     <hr/>
-                    Look at how you will compile, package and deploy your project. I may be completely out of your
+                    Look at how you will compile, package and deploy your project. It may be completely out of your
                     control, or entirely your responsibility and that changes the scope of what you have to get done.
                 </aside>
             </section>
@@ -282,14 +284,13 @@
                     <li>Acceptance Testing</li>
                 </ul>
                 <aside class="notes">
-                    We tend to deal with testing by saying "Yes, we test". Sometimes you have an existing set of
-                    user testers - and they may or may not trust unit and integration testing!
+                    <i>Which of these is important?</i>
+                    <i>Whose responsibility is each?</i>
+                    <i>More than a yes/no - what do you test and how?</i>
+                    <i>Enterprise transformation - be prepared for existing testers to challenge unit testing!</i>
+                    <i>Sustainability - don't test based on dates, times or specific events. February 29th!</i>
                     <hr/>
-                    I want to relate testing back to sustainability. If your testing is based on dates, times,
-                    people or other specific events; then they have to be planned for. You can't only run the unit tests
-                    on the 1st of the month, and they shouldn't fail on Feb 29th.
-                    <hr/>
-                    Will you be able to reliable test, with the same circumstances - a year from now? This could
+                    Will you be able to reliably test, with the same circumstances - a year from now? This could
                     be a whole presentation.
                 </aside>
             </section>
@@ -303,7 +304,7 @@
                 </ul>
                 <aside class="notes">
                     In the new JavaScript world, this has become a lot more important. Developers are turning to
-                    Yarn and lock files to keep versions of dependencies fixed. These things are broken on us all
+                    Yarn and lock files to keep versions of dependencies fixed. These things are break on us all
                     the time!
                     <hr/>
                     We're going to look at this later - but a good thing to note here - NPM modules can be stored
@@ -312,6 +313,38 @@
                     But more central to our point of sustainability; plan for third party services. If you get the
                     weather from a web service; you should consider how you are going to sustain that going forward.
                     They could go out of business, or completely change how their API works. They could raise prices.
+                </aside>
+            </section>
+            <section>
+                <h2>ADA</h2>
+                <ul>
+                    <li>Anyone should be able to use your website</li>
+                    <li>2006: National Federation of the Blind versus Target</li>
+                    <li>2017: > 800 federal lawsuits</li>
+                    <li>2018: > 1,000 in first six months</li>
+                    <li>1 in 5 people have a legal officially recognized permanent disability</li>
+                    <li>Anyone can have a temporary impairment</li>
+                </ul>
+                <aside class="notes">
+                    https://www.slideshare.net/AshleyDzick/intro-to-web-accessibility-117687372
+                    <p>
+                        I can give you a link to a great accessibility intro, there is also a great intro
+                        available on youtube from this year's Gophercon.
+                    </p>
+                </aside>
+            </section>
+            <section>
+                <h2>Monitoring</h2>
+                <ul>
+                    <li>Can't act without feedback</li>
+                    <li>Can't sustain without acting</li>
+                    <li>Proactive care, not passive</li>
+                    <li>Application Insights, Cloud Watch, Data Dog, BugSnag, etc</li>
+                </ul>
+                <aside class="notes">
+                    I want to very briefly mention monitoring, especially in the modern cloud world. It's gotten very
+                    easy to monitor our applications and get insights. Start this early; watch your development server
+                    like you would production. Tools like Application Insights on Azure, Data Dog and BugSnag are great.
                 </aside>
             </section>
             <section>
@@ -418,11 +451,11 @@
                     <li style="font-style: italic">Status screens, reporting, internal information sites, blogs, news feeds, and kick-start.</li>
                 </ul>
                 <aside class="notes">
-                    You can build generated status sites using frameworks like Jekyll or wintersmith.
+                    You can build generated static sites using frameworks like Jekyll or wintersmith and languages like Go.
                     Sometimes, users desire more interactivity.
                     Handle change better than a static site
 
-                    You can get information from a database, web service, etc.
+                    You can get information from a database, web service, without the security concerns of api traffic.
                     Another benefit of using a static site generator, as the templates and any code can be used to kick-start a more in-depth project.
 					This makes for an inherently more secure and performant dashboard - just regenerate the site on a cycle and don't worry about what the front 
 					end is allowed to do.
