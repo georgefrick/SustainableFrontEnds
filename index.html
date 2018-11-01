@@ -193,7 +193,7 @@
 
         <section>
             <section>
-                <h1>1. Components</h1>
+                <h1 style="  white-space: nowrap;">1. Components</h1>
                 <ul>
                     <li>Documentation</li>
                     <li>Security</li>
@@ -319,13 +319,14 @@
                 <h2>ADA</h2>
                 <ul>
                     <li>Anyone should be able to use your website</li>
-                    <li>2006: National Federation of the Blind versus Target</li>
+                    <li>2006: National Federation of the Blind Vs Target</li>
                     <li>2017: > 800 federal lawsuits</li>
                     <li>2018: > 1,000 in first six months</li>
-                    <li>1 in 5 people have a legal officially recognized permanent disability</li>
+                    <li>1 in 5 people! </li>
                     <li>Anyone can have a temporary impairment</li>
                 </ul>
                 <aside class="notes">
+                    <li>1 in 5 people have a legal officially recognized permanent disability</li>
                     https://www.slideshare.net/AshleyDzick/intro-to-web-accessibility-117687372
                     <p>
                         I can give you a link to a great accessibility intro, there is also a great intro
@@ -339,7 +340,8 @@
                     <li>Can't act without feedback</li>
                     <li>Can't sustain without acting</li>
                     <li>Proactive care, not passive</li>
-                    <li>Application Insights, Cloud Watch, Data Dog, BugSnag, etc</li>
+                    <li>Application Insights, Cloud Watch</li>
+                    <li>Data Dog, BugSnag, etc</li>
                 </ul>
                 <aside class="notes">
                     I want to very briefly mention monitoring, especially in the modern cloud world. It's gotten very
@@ -627,14 +629,14 @@ export class RoleGuard implements CanActivate {
   public canActivate(routeSnapshot: ActivatedRouteSnapshot,
                       state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
 
-    let neededRole = routeSnapshot.data[“role”];
+    const neededRole = routeSnapshot.data[“role”];
 
     if( neededRole === undefined ) {
        return true;
     }
 
-    let roles = this.authService.getCurrentUserRoles();
-    let role = roles.find( eachRole => eachRole.roleName === neededRole );
+    const roles = this.authService.getCurrentUserRoles();
+    const role = roles.find( eachRole => eachRole.roleName === neededRole );
     return (role !== undefined);
   }
 }
@@ -652,9 +654,9 @@ export class RoleGuard implements CanActivate {
   public canActivate(routeSnapshot: ActivatedRouteSnapshot,
                              state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
 
-    let neededRole = routeSnapshot.data[“role”];
+    const neededRole = routeSnapshot.data[“role”];
 
-    return this.authService.isAuthorizedForRole(neededRole); // Observable
+    return this.authService.isAuthorizedForRole(neededRole); // Observable!
   }
 }
 					</code></pre>
@@ -688,6 +690,7 @@ export class RoleGuard implements CanActivate {
                     <li>How is it tested?</li>
                     <li>Does it solve a complete set of problems?</li>
                     <li>It can be found as part of a larger, more useful library.</li>
+                    <li>It can be found as part of a smaller, more specific library.</li>
                 </ul>
 
                 </p>
@@ -737,6 +740,8 @@ package-2@^2.0.0:
     package-4 "^4.0.0"
 					</code></pre>
                 <aside class="notes">
+                    In this example I'm showing a switch to Yarn, but these days npm produces a lock file and there isn't much reason to switch
+                    unless you like one of Yarn's other features.
                     Migrating from npm should be a fairly easy process for most users. Yarn can consume the same package.json format as npm, and can install any package from the npm registry.
                 </aside>
             </section>
@@ -774,7 +779,7 @@ package-2@^2.0.0:
                     <li>Independence - libraries can be independently worked on and tested.</li>
                     <li>Framework Freedom - code can be built to work with a framework (calendar), or alone (calculations)</li>
                     <li>Proper Retirement - code can be retired as appropriate; such as replacement with a more powerful commercial library. </li>
-                    <li>Proper Retirement - if you are starting something new, you can plan which libraries to use or replace. </li>
+                    <li>Future Planning - if you are starting something new, you can plan which libraries to use or replace. </li>
                     <li>Web Components - Polymer, StencilJS, etc. </li>
                 </ul>
 
@@ -824,7 +829,7 @@ Is this ok? (yes)
                 <pre width="90%" ><code class="hljs" data-trim contenteditable>
 module.exports = {
     hello: function () {
-        return "Hello Web 414";
+        return "Hello Tech MKE!";
     },
     monthlyPayment: function (principle, months, iRate) {
         return principle * iRate * (Math.pow(1 + iRate, months)) / (Math.pow(1 + iRate, months) - 1);
@@ -839,10 +844,10 @@ module.exports = {
                 <h5>3. Publish (NPM or Nexus)</h5>
                 <pre width="90%" ><code class="hljs" data-trim contenteditable>
 $ npm login
-Username: georgejfrick
+Username: georgefrick
 Password: $$$$$$$$$$$$$$$$$$$
 Email: (this IS public) george.frick@gmail.com
-Logged in as georgejfrick on https://registry.npmjs.org/.
+Logged in as georgefrick on https://registry.npmjs.org/.
 
 $ npm publish
 + gjf-utils@1.0.0
