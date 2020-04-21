@@ -57,23 +57,26 @@
             <h1>Front Ends</h1>
             <p><i>by</i> George Frick</p>
             <p>NVISIA LLC</p>
+            <p style="font-size: .5em;">Press S for Notes</p>
             <aside class="notes">
                 <ul>
-                    <li>front end architecture</li>
-                    <li>considered an introduction</li>
-                    <li>macro topics, then micro</li>
-                    <li>take away: We should be making the same good architectural considerations for our front end code that we do for our backend.</li>
+                    <li>Front end architecture</li>
+                    <li>Considered an introduction</li>
+                    <li>Macro topics, then micro</li>
+                    <li>Take away: We should be making the same good architectural considerations for our front end code
+                        that we do for our backend.
+                    </li>
                 </ul>
             </aside>
         </section>
 
         <!-- Who am i? -->
-        <section data-background="content/skyline2.jpg">
+        <section data-background="content/Milwaukee-skyline.png">
             <iframe src="content/deep-blue/george_cv.html" width="800" height="583"
                     frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
-                    style=" max-height: 583px; max-width: 1024px;" > </iframe>
+                    style=" max-height: 583px; max-width: 1024px;"></iframe>
             <aside class="notes">
-                I'm George Frick, a Technical Architect at Nvisia and a Milwaukee native. -introduce yourself-
+                I'm George Frick, a Principal Architect at Nvisia and a Milwaukee native. -introduce yourself-
             </aside>
         </section>
 
@@ -92,11 +95,11 @@
             </p>
             <aside class="notes">
                 <ul>
-                    <li>what do I mean by Sustainable?</li>
+                    <li>What do I mean by Sustainable?</li>
                     <li>-read definition-</li>
-                    <li>We tend to focus on the 2nd, but only for the short term</li>
-                    <li>But the first is just as important, and both in the long term</li>
-                    <li>lets talk about why?</li>
+                    <li>The problem arises when we focus on the second - why we've chosen Angular/React/Vue.</li>
+                    <li>Really, the business would prefer we focus on the first.</li>
+                    <li>So.. why? (next slide)</li>
                 </ul>
             </aside>
         </section>
@@ -105,36 +108,38 @@
             <h1>Why?</h1>
             <p>
             <ol>
-                <li>Churning the same foundation and features.</li>
-                <li>Front of the learning curve.</li>
-                <li>Lack of business focus.</li>
-                <li>Doesn't prevent new techniques, and determines which.</li>
+                <li>Avoid Churn.</li>
+                <li>Beat The Learning Curve.</li>
+                <li>Reliable, Scalable, and Maintainable.</li>
+                <li>Credibility.</li>
             </ol>
             </p>
             <aside class="notes">
                 <ul>
-                    <li>Can't do cool stuff when always starting over</li>
-                    <li>Let's talk about the beginning of a project.</li>
+                    <li>Can't do cool stuff when we're always starting over</li>
                     <li>new app - large portion of time on foundations: security, layout, build process</li>
-                    <li>developers are learning a new framework, no established best practices</li>
+                    <li>developers are learning a new framework, not established best practices</li>
                     <li>starting over means focusing on basics</li>
-                    <li>we want to focus on features, on differentiating our business in the market place</li>
-                    <li>we want to focus on doing cool things!</li>
                 </ul>
-				<p>
-				When we are starting over, it should allow to to rebuild the wrong parts, and keep as much of the good as possible.
-				</p>
+                <p>
+                    This comes down to being able to prioritize business needs so that we can react to a changing
+                    business world.
+                    You cannot build credibility with the business if requests often mean starting
+                    over, or you give the impression you didn't plan for change.
+                    We don't always want to be rebuilding software, we want to be building a platform of incremental
+                    improvement and capability.
+                </p>
             </aside>
         </section>
 
         <section data-background="content/all-frameworks.png">
             <aside class="notes">
                 <ul>
-                    <li>we tend to pick a framework/library, and we're done.</li>
-                    <li>generally based on popularity</li>
+                    <li>We tend to pick a framework/library, and we're done.</li>
+                    <li>This is generally based on popularity</li>
                     <li>BUT, frameworks are contributors of architectural ideas</li>
                     <li>We have requirements, and we need an architecture based on our goals.</li>
-                    <li>Understand that modern frameworks will in some way be prescribing how we work.</li>
+                    <li>Understand that modern frameworks will in some way be prescribe how we work.</li>
                 </ul>
             </aside>
         </section>
@@ -149,11 +154,15 @@
                 <ul>
                     <li>make more complete decisions at the beginning of a project</li>
                     <li>we have to consider our front end architecture the same
-                        way we do for our services</li>
+                        way we do for our services
+                    </li>
                     <li>We then have to follow that up, with good habits while developing.</li>
-                    <li>the goal is for the framework to be a layer in your architecture, and not the container for it.</li>
+                    <li>the goal is for the framework to be a layer in your architecture, and not the container for
+                        it.
+                    </li>
                 </ul>
-                We'll talk about the first from the architectural level, and then the second will be a series of tips we'll look at.
+                We'll talk about the first from the architectural level, and then the second will be a series of tips
+                we'll look at.
             </aside>
         </section>
 
@@ -184,9 +193,10 @@
             <aside class="notes">
                 <ul>
                     <li>By looking at the components up front, we can consider what we're building.</li>
-                    <li>three parts </li>
+                    <li>three parts</li>
                     <li>the components of your architecture, the approach to addressing your needs,
-                        and questions you can ask about both future and existing projects.</li>
+                        and questions you can ask about both future and existing projects.
+                    </li>
                 </ul>
             </aside>
         </section>
@@ -220,14 +230,15 @@
                 </ul>
                 <aside class="notes">
                     <ul>
-                        <li>I don't mean code documentation. </li>
+                        <li>I don't mean code documentation.</li>
                         <li>includes very important docs like style guide</li>
                         <li>branding document provided to you</li>
                         <li>expand the branding guide to be a complete style guide.</li>
                     </ul>
                     <hr/>
                     You'll also want a set of coding standards, which these days can be codified into a .editorconfig
-                    file and put into the repo with the projects code. I'd still have a document, or officially reference
+                    file and put into the repo with the projects code. I'd still have a document, or officially
+                    reference
                     and existing one. Start at editorconfig.org
                     <hr/>
                     How will you roll on new developers? What do they need to know.
@@ -246,7 +257,8 @@
                         <li>data should never arrive from server</li>
                         <li>server should block actions</li>
                         <li> secure your application and be part of any
-                            security planning and discussions</li>
+                            security planning and discussions
+                        </li>
                     </ul>
                     I want to mention security briefly; it shouldn't be as much the concern of the front end architect
                     as the back end. It should be a company wide concern, and be based on the principle of least
@@ -322,7 +334,7 @@
                     <li>2006: National Federation of the Blind Vs Target</li>
                     <li>2017: > 800 federal lawsuits</li>
                     <li>2018: > 1,000 in first six months</li>
-                    <li>1 in 5 people! </li>
+                    <li>1 in 5 people!</li>
                     <li>Anyone can have a temporary impairment</li>
                 </ul>
                 <aside class="notes">
@@ -376,10 +388,13 @@
                 <h1>2. Approach</h1>
 
                 <aside class="notes">
-                    Let's finally talk frameworks. Maybe your project is small and you don't have any special requirements.
-                    Maybe you think this step is "done", because you are "A React house" and you build everything in React.
+                    Let's finally talk frameworks. Maybe your project is small and you don't have any special
+                    requirements.
+                    Maybe you think this step is "done", because you are "A React house" and you build everything in
+                    React.
                     <hr/>
-                    But let's just take a look at some architectural alternatives you might make based on your information.
+                    But let's just take a look at some architectural alternatives you might make based on your
+                    information.
                     For example, a lot of bloggers and small companies look at their requirements and choose Word Press,
                     and they experience a lot of success.
                 </aside>
@@ -450,17 +465,22 @@
                     </tbody>
                 </table>
                 <ul style="margin-top: 1em;">
-                    <li style="font-style: italic">Status screens, reporting, internal information sites, blogs, news feeds, and kick-start.</li>
+                    <li style="font-style: italic">Status screens, reporting, internal information sites, blogs, news
+                        feeds, and kick-start.
+                    </li>
                 </ul>
                 <aside class="notes">
-                    You can build generated static sites using frameworks like Jekyll or wintersmith and languages like Go.
+                    You can build generated static sites using frameworks like Jekyll or wintersmith and languages like
+                    Go.
                     Sometimes, users desire more interactivity.
                     Handle change better than a static site
 
                     You can get information from a database, web service, without the security concerns of api traffic.
-                    Another benefit of using a static site generator, as the templates and any code can be used to kick-start a more in-depth project.
-					This makes for an inherently more secure and performant dashboard - just regenerate the site on a cycle and don't worry about what the front 
-					end is allowed to do.
+                    Another benefit of using a static site generator, as the templates and any code can be used to
+                    kick-start a more in-depth project.
+                    This makes for an inherently more secure and performant dashboard - just regenerate the site on a
+                    cycle and don't worry about what the front
+                    end is allowed to do.
                 </aside>
 
             </section>
@@ -491,7 +511,8 @@
                     </tbody>
                 </table>
                 <ul style="margin-top: 1em;">
-                    <li style="font-style: italic">Creative content and publicly facing pages with changing designs.</li>
+                    <li style="font-style: italic">Creative content and publicly facing pages with changing designs.
+                    </li>
                 </ul>
                 <aside class="notes">
                     It’s strange to be suggesting this.
@@ -527,12 +548,16 @@
                     </tbody>
                 </table>
                 <ul style="margin-top: 1em;">
-                    <li style="font-style: italic">Highly customized business functionality, data manipulation and workspaces.</li>
+                    <li style="font-style: italic">Highly customized business functionality, data manipulation and
+                        workspaces.
+                    </li>
                 </ul>
                 <aside class="notes">
-                    In the majority of situations where you are planning an enterprise application; this will fit for you.
+                    In the majority of situations where you are planning an enterprise application; this will fit for
+                    you.
                     Bootstrap application development, ex: Yeoman and many CLIs.
-                    Developers can quickly build out applications that support specific business functions and fit directly to requirements.
+                    Developers can quickly build out applications that support specific business functions and fit
+                    directly to requirements.
                     More and more, the benefits of static site generation are showing up here as well.
                     You will have trouble here with switching frameworks, aging code, security, complexity
                 </aside>
@@ -562,17 +587,27 @@
                     </tbody>
                 </table>
                 <ul style="margin-top: 1em;">
-                    <li style="font-style: italic">Highly focused business functionality, data manipulation and workspaces. </li>
+                    <li style="font-style: italic">Highly focused business functionality, data manipulation and
+                        workspaces.
+                    </li>
                     <li style="font-style: italic">Not MVC</li>
                 </ul>
                 <aside class="notes">
-                    A multipage application can still be appropriate and actually strong when you are attempting to get the advantages of SPAs and deal with specific disadvantages. There is actually a small but growing idea here that follow that of micro-services. Micro-front ends. By going back to multi page applications, but using SPA tools and frameworks; we can minimize problems like architectural change, SEO, and complexity.
+                    A multipage application can still be appropriate and actually strong when you are attempting to get
+                    the advantages of SPAs and deal with specific disadvantages. There is actually a small but growing
+                    idea here that follow that of micro-services. Micro-front ends. By going back to multi page
+                    applications, but using SPA tools and frameworks; we can minimize problems like architectural
+                    change, SEO, and complexity.
 
-                    Traditionally a multi-page application would imply MVC and would be tied to some kind of non-restful (or non graph-ql) back end. Forcing developers to work on both, and I don’t recommend that approach.
+                    Traditionally a multi-page application would imply MVC and would be tied to some kind of non-restful
+                    (or non graph-ql) back end. Forcing developers to work on both, and I don’t recommend that approach.
 
-                    What I can recommend is there can be benefits to building more, smaller applications. As we’ve seen through this talk - you can identify and architect each application according to it’s needs.
+                    What I can recommend is there can be benefits to building more, smaller applications. As we’ve seen
+                    through this talk - you can identify and architect each application according to it’s needs.
 
-                    MPAs have the disadvantage of complexity of management. As the number of projects goes up, maintenance, new features and overall organization can suffer. It takes an approach that manages the applications as a portfolio to do this well.
+                    MPAs have the disadvantage of complexity of management. As the number of projects goes up,
+                    maintenance, new features and overall organization can suffer. It takes an approach that manages the
+                    applications as a portfolio to do this well.
 
                 </aside>
 
@@ -594,18 +629,21 @@
         <section data-background="content/coding-screen.jpg">
             <h1>Best Practices</h1>
             <p>
-            <h4 class="fragment mg_top">“commercial or professional procedures that are accepted or prescribed as being correct or most effective.”
+            <h4 class="fragment mg_top">“commercial or professional procedures that are accepted or prescribed as being
+                correct or most effective.”
             </h4>
 
             </p>
             <aside class="notes">
-                Now that we've talked about the some concerns around architecture, let's be a little more hands on. I'm going to show you some
-                actions you can take to improve future and existing projects. This list is not exhaustive, it's targeted at mistakes I see often
+                Now that we've talked about the some concerns around architecture, let's be a little more hands on. I'm
+                going to show you some
+                actions you can take to improve future and existing projects. This list is not exhaustive, it's targeted
+                at mistakes I see often
                 and on being impactful.
             </aside>
         </section>
 
-        <section >
+        <section>
             <section>
                 <h1>Don't Inline Logic</h1>
                 <ul>
@@ -667,7 +705,7 @@ export class RoleGuard implements CanActivate {
         </section>
 
 
-        <section >
+        <section>
             <section>
                 <h1>Manage Dependencies</h1>
                 <p>
@@ -740,9 +778,11 @@ package-2@^2.0.0:
     package-4 "^4.0.0"
 					</code></pre>
                 <aside class="notes">
-                    In this example I'm showing a switch to Yarn, but these days npm produces a lock file and there isn't much reason to switch
+                    In this example I'm showing a switch to Yarn, but these days npm produces a lock file and there
+                    isn't much reason to switch
                     unless you like one of Yarn's other features.
-                    Migrating from npm should be a fairly easy process for most users. Yarn can consume the same package.json format as npm, and can install any package from the npm registry.
+                    Migrating from npm should be a fairly easy process for most users. Yarn can consume the same
+                    package.json format as npm, and can install any package from the npm registry.
                 </aside>
             </section>
             <section>
@@ -755,35 +795,42 @@ package-2@^2.0.0:
 
                 </p>
                 <aside class="notes">
-                    There are now multiple tools you can use to both analyze your dependencies before update, and to automate
+                    There are now multiple tools you can use to both analyze your dependencies before update, and to
+                    automate
                     the update in a more compatible way.
                 </aside>
             </section>
         </section>
 
-        <section >
+        <section>
             <section>
-            <h1>Build Libraries</h1>
-            <p>
-            <ul>
-                <li>Code Reuse & Sharing</li>
-                <li>Independence</li>
-                <li>Framework Freedom</li>
-                <li>Proper Retirement</li>
-                <li>Future Planning</li>
-            </ul>
-            </p>
-            <aside class="notes">
+                <h1>Build Libraries</h1>
+                <p>
                 <ul>
-                    <li>Code Reuse - across projects and frameworks and the frontend/backend.</li>
-                    <li>Independence - libraries can be independently worked on and tested.</li>
-                    <li>Framework Freedom - code can be built to work with a framework (calendar), or alone (calculations)</li>
-                    <li>Proper Retirement - code can be retired as appropriate; such as replacement with a more powerful commercial library. </li>
-                    <li>Future Planning - if you are starting something new, you can plan which libraries to use or replace. </li>
-                    <li>Web Components - Polymer, StencilJS, etc. </li>
+                    <li>Code Reuse & Sharing</li>
+                    <li>Independence</li>
+                    <li>Framework Freedom</li>
+                    <li>Proper Retirement</li>
+                    <li>Future Planning</li>
                 </ul>
+                </p>
+                <aside class="notes">
+                    <ul>
+                        <li>Code Reuse - across projects and frameworks and the frontend/backend.</li>
+                        <li>Independence - libraries can be independently worked on and tested.</li>
+                        <li>Framework Freedom - code can be built to work with a framework (calendar), or alone
+                            (calculations)
+                        </li>
+                        <li>Proper Retirement - code can be retired as appropriate; such as replacement with a more
+                            powerful commercial library.
+                        </li>
+                        <li>Future Planning - if you are starting something new, you can plan which libraries to use or
+                            replace.
+                        </li>
+                        <li>Web Components - Polymer, StencilJS, etc.</li>
+                    </ul>
 
-            </aside>
+                </aside>
             </section>
             <section>
                 <h2>Building Libraries</h2>
@@ -799,7 +846,7 @@ package-2@^2.0.0:
             </section>
             <section>
                 <h5>1. Create the library</h5>
-                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
 $ npm init
 version: (1.0.0)
 description: An example utility package.
@@ -821,12 +868,13 @@ About to write to C:\dev\projects\gjf-utils\package.json: {
 Is this ok? (yes)
 					</code></pre>
                 <aside class="notes">
-                    You can create a new project with npm init, or use one of the many CLI's or yeoman generators to kick start this.
+                    You can create a new project with npm init, or use one of the many CLI's or yeoman generators to
+                    kick start this.
                 </aside>
             </section>
             <section>
                 <h5>2. Add Code</h5>
-                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
 module.exports = {
     hello: function () {
         return "Hello Tech MKE!";
@@ -842,7 +890,7 @@ module.exports = {
             </section>
             <section>
                 <h5>3. Publish (NPM or Nexus)</h5>
-                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
 $ npm login
 Username: georgefrick
 Password: $$$$$$$$$$$$$$$$$$$
@@ -859,7 +907,7 @@ $ npm publish
             </section>
             <section>
                 <h5>3.b. Publish to Nexus</h5>
-                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
 {
   "name": "gjf-utils",
   "version": "1.0.0",
@@ -883,7 +931,7 @@ $ npm publish
             </section>
             <section>
                 <h5>4. Use</h5>
-                <pre width="90%" ><code class="hljs" data-trim contenteditable>
+                <pre width="90%"><code class="hljs" data-trim contenteditable>
 $ npm install gjf-utils
 
     var test = require('gjf-utils');
@@ -912,7 +960,7 @@ $ npm install gjf-utils
                 - Escape the churn and solve more important problems.
             </p>
             <p>
-               Questions?
+                Questions?
             </p>
         </section>
 
@@ -944,23 +992,23 @@ $ npm install gjf-utils
         dependencies: [
             {
                 src: 'lib/js/classList.js', condition: function () {
-                return !document.body.classList;
-            }
+                    return !document.body.classList;
+                }
             },
             {
                 src: 'plugin/markdown/marked.js', condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
+                    return !!document.querySelector('[data-markdown]');
+                }
             },
             {
                 src: 'plugin/markdown/markdown.js', condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
+                    return !!document.querySelector('[data-markdown]');
+                }
             },
             {
                 src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             },
             {src: 'plugin/zoom-js/zoom.js', async: true},
             {src: 'plugin/notes/notes.js', async: true}
