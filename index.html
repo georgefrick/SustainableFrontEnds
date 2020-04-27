@@ -142,28 +142,6 @@
             </aside>
         </section>
 
-        <section>
-            <h1>Two Parts</h1>
-            <ol>
-                <li class="fragment">Planning our build through good architecture.</li>
-                <li class="fragment">Following through with best practices.</li>
-            </ol>
-            <aside class="notes">
-                <ul>
-                    <li>make more complete decisions at the beginning of a project</li>
-                    <li>we have to consider our front end architecture the same
-                        way we do for our services
-                    </li>
-                    <li>We then have to follow that up, with good habits while developing.</li>
-                    <li>the goal is for the framework to be a layer in your architecture, and not the container for
-                        it.
-                    </li>
-                </ul>
-                We'll talk about the first from the architectural level, and then the second will be a series of tips
-                we'll look at.
-            </aside>
-        </section>
-
         <section data-background="content/blocks.jpg">
             <h1>Front End Architecture</h1>
             <p>
@@ -178,7 +156,18 @@
                     <li>We don't want the tools to become the master.</li>
                     <li>We are going to use architecture, to be sustainable.</li>
                 </ul>
+                <ul>
+                    <li>make more complete decisions at the beginning of a project</li>
+                    <li>we have to consider our front end architecture the same
+                        way we do for our services
+                    </li>
+                    <li>We then have to follow that up, with good habits while developing.</li>
+                    <li>The goal is for the framework to be a layer in your architecture, and not the container for
+                        it.
+                    </li>
+                </ul>
             </aside>
+
         </section>
 
         <section>
@@ -186,14 +175,14 @@
             <ol>
                 <li>Components - the breadth of topics to consider.</li>
                 <li>Approach - driving your architecture based on needs.</li>
-                <li>Questions - good questions to ask.</li>
+                <li>Best Practices - execute your plan well.</li>
             </ol>
             <aside class="notes">
                 <ul>
                     <li>By looking at the components up front, we can consider what we're building.</li>
-                    <li>three parts</li>
                     <li>the components of your architecture, the approach to addressing your needs,
-                        and questions you can ask about both future and existing projects.
+                        the questions you can ask about both future and existing projects, and the
+                        best practices we follow while executing.
                     </li>
                 </ul>
             </aside>
@@ -202,21 +191,9 @@
         <section>
             <section>
                 <h1 style="  white-space: nowrap;">1. Components</h1>
-                <ul>
-                    <li>Documentation</li>
-                    <li>Security</li>
-                    <li>Build Process</li>
-                    <li>Testing</li>
-                    <li>Dependency Management</li>
-                    <li>ADA</li>
-                    <li>Monitoring</li>
-                    <li>Performance</li>
-                    <li style="font-style: italic">http://webdevchecklist.com</li>
-                </ul>
                 <aside class="notes">
                     Not completely comprehensive, but covers the most important. For more details, use webdevchecklist.
                 </aside>
-
             </section>
 
             <section>
@@ -225,6 +202,10 @@
                     <li>Style Guide</li>
                     <li>Coding Standards</li>
                     <li>Roll on document</li>
+                    <li>Decision documents</li>
+                    <li>README.MD</li>
+                    <li>.editorconfig</li>
+                    <li style="font-style: italic">http://webdevchecklist.com</li>
                 </ul>
                 <aside class="notes">
                     <ul>
@@ -351,7 +332,7 @@
                     <li>Can't sustain without acting</li>
                     <li>Proactive care, not passive</li>
                     <li>Application Insights, Cloud Watch</li>
-                    <li>Data Dog, BugSnag, etc</li>
+                    <li>Data Dog, BugSnag, Seq, etc</li>
                 </ul>
                 <aside class="notes">
                     I want to very briefly mention monitoring, especially in the modern cloud world. It's gotten very
@@ -395,6 +376,14 @@
                     information.
                     For example, a lot of bloggers and small companies look at their requirements and choose Word Press,
                     and they experience a lot of success.
+                    <ul>
+                        <li class="fragment">How will you roll on new developers?</li>
+                        <li class="fragment">What metrics are important for the project?</li>
+                        <li class="fragment">Is your approach feasible?</li>
+                        <li class="fragment">What is your plan when a third party changes something?</li>
+                        <li class="fragment">What is the planned lifetime of the project?</li>
+                    </ul>
+
                 </aside>
 
             </section>
@@ -614,36 +603,23 @@
         </section>
 
         <section>
-            <h1>3. Questions</h1>
-            <ul>
-                <li class="fragment">How will you roll on new developers?</li>
-                <li class="fragment">What metrics are important for the project?</li>
-                <li class="fragment">Is your approach feasible?</li>
-                <li class="fragment">What is your plan when a third party changes something?</li>
-                <li class="fragment">What is the planned lifetime of the project?</li>
-            </ul>
-        </section>
-
         <section data-background="content/coding-screen.jpg">
-            <h1>Best Practices</h1>
+            <h1>3. Best Practices</h1>
             <p>
-            <h4 class="fragment mg_top">“commercial or professional procedures that are accepted or prescribed as being
+            <h4 class=" mg_top">“commercial or professional procedures that are accepted or prescribed as being
                 correct or most effective.”
             </h4>
 
             </p>
             <aside class="notes">
-                Now that we've talked about the some concerns around architecture, let's be a little more hands on. I'm
+                Now that we've talked about the some concerns around architecture, let's review some specific actions we
+                can take in projects and as an organization. I'm
                 going to show you some
-                actions you can take to improve future and existing projects. This list is not exhaustive, it's targeted
-                at mistakes I see often
-                and on being impactful.
+                actions you can take to improve future and existing projects.
             </aside>
         </section>
-
-        <section>
             <section>
-                <h1>Don't Inline Logic</h1>
+                <h2>Don't Inline Logic</h2>
                 <ul>
                     <li>Locks you into framework</li>
                     <li>Duplication!</li>
@@ -655,154 +631,7 @@
                 </aside>
             </section>
             <section>
-                	<pre width="90%"><code class="hljs" data-trim contenteditable>
-
-@Injectable()
-export class RoleGuard implements CanActivate {
-
-  constructor(private router: Router, private authService: AuthService) {}
-
-  public canActivate(routeSnapshot: ActivatedRouteSnapshot,
-                      state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
-
-    const neededRole = routeSnapshot.data[“role”];
-
-    if( neededRole === undefined ) {
-       return true;
-    }
-
-    const roles = this.authService.getCurrentUserRoles();
-    const role = roles.find( eachRole => eachRole.roleName === neededRole );
-    return (role !== undefined);
-  }
-}
-					</code></pre>
-            </section>
-            <section>
-                	<pre width="90%"><code class="hljs" data-trim contenteditable>
-
-@Injectable()
-
-export class RoleGuard implements CanActivate {
-
-  constructor(private router: Router, private authService: AuthService) {}
-
-  public canActivate(routeSnapshot: ActivatedRouteSnapshot,
-                             state: RouterStateSnapshot): Observable&lt;boolean> | boolean {
-
-    const neededRole = routeSnapshot.data[“role”];
-
-    return this.authService.isAuthorizedForRole(neededRole); // Observable!
-  }
-}
-					</code></pre>
-                <aside class="notes">
-                    Good naming conventions are important.
-                </aside>
-            </section>
-        </section>
-
-
-        <section>
-            <section>
-                <h1>Manage Dependencies</h1>
-                <p>
-                <ul>
-                    <li>Monday morning headaches</li>
-                    <li>Broken CI Pipelines</li>
-                    <li>Dependency Hell</li>
-                </ul>
-
-                </p>
-                <aside class="notes">
-                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
-                </aside>
-            </section>
-            <section>
-                <h2>Don't use it.</h2>
-                <p>
-                <ul>
-                    <li>Is it actively maintained?</li>
-                    <li>How is it tested?</li>
-                    <li>Does it solve a complete set of problems?</li>
-                    <li>It can be found as part of a larger, more useful library.</li>
-                    <li>It can be found as part of a smaller, more specific library.</li>
-                </ul>
-
-                </p>
-                <aside class="notes">
-                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
-                </aside>
-            </section>
-            <section>
-                	<pre width="90%"><code class="hljs" data-trim contenteditable>
-“devDependencies” : {
-
-  “awesome-typscript-loader”: “^2.2.4”,
-
-  “other-tiny-library”: “^2.5.1”
-
-}
-					</code></pre>
-                <aside class="notes">
-                    Good naming conventions are important.
-                </aside>
-            </section>
-            <section>
-                	<pre width="90%"><code class="hljs" data-trim contenteditable>
-“devDependencies” : {
-
-  “awesome-typscript-loader”: “~2.2.4”,
-
-  “other-tiny-library”: “2.5.1”
-
-}
-					</code></pre>
-                <aside class="notes">
-                    Good naming conventions are important.
-                </aside>
-            </section>
-            <section>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-# THIS IS AN AUTOGENERATED FILE. DO NOT EDIT THIS FILE DIRECTLY.
-# yarn lockfile v1
-package-1@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.npmjs.org/package-1/-/package-1-1.0.3.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
-package-2@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/package-2/-/package-2-2.0.1.tgz#a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0"
-  dependencies:
-    package-4 "^4.0.0"
-					</code></pre>
-                <aside class="notes">
-                    In this example I'm showing a switch to Yarn, but these days npm produces a lock file and there
-                    isn't much reason to switch
-                    unless you like one of Yarn's other features.
-                    Migrating from npm should be a fairly easy process for most users. Yarn can consume the same
-                    package.json format as npm, and can install any package from the npm registry.
-                </aside>
-            </section>
-            <section>
-                <h2>Staying Up To Date</h2>
-                <p>
-                <ul>
-                    <li>Do use tool based updates.</li>
-                    <li>https://www.npmjs.com/package/npm-check-updates</li>
-                </ul>
-
-                </p>
-                <aside class="notes">
-                    There are now multiple tools you can use to both analyze your dependencies before update, and to
-                    automate
-                    the update in a more compatible way.
-                </aside>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h1>Build Libraries</h1>
+                <h2>Build Libraries</h2>
                 <p>
                 <ul>
                     <li>Code Reuse & Sharing</li>
@@ -831,123 +660,45 @@ package-2@^2.0.0:
                 </aside>
             </section>
             <section>
-                <h2>Building Libraries</h2>
+                <h2>Manage Dependencies</h2>
                 <p>
                 <ul>
-
+                    <li>Monday morning headaches</li>
+                    <li>Broken CI Pipelines</li>
+                    <li>Dependency Hell</li>
                 </ul>
 
                 </p>
                 <aside class="notes">
-
+                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
                 </aside>
-            </section>
-            <section>
-                <h5>1. Create the library</h5>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-$ npm init
-version: (1.0.0)
-description: An example utility package.
-entry point: (index.js)
-git repository:
-author: George Frick
-license: (ISC)
-About to write to C:\dev\projects\gjf-utils\package.json: {
-  "name": "gjf-utils",
-  "version": "1.0.0",
-  "description": "An example utility package.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "George Frick",
-  "license": "ISC"
-}
-Is this ok? (yes)
-					</code></pre>
+                <h2>Don't use it.</h2>
+                <p>
+                <ul>
+                    <li>Is it actively maintained?</li>
+                    <li>How is it tested?</li>
+                    <li>Does it solve a complete set of problems?</li>
+                    <li>It can be found as part of a larger, more useful library.</li>
+                    <li>It can be found as part of a smaller, more specific library.</li>
+                </ul>
+
+                </p>
+
                 <aside class="notes">
-                    You can create a new project with npm init, or use one of the many CLI's or yeoman generators to
-                    kick start this.
+                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
                 </aside>
-            </section>
-            <section>
-                <h5>2. Add Code</h5>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-module.exports = {
-    hello: function () {
-        return "Hello Tech MKE!";
-    },
-    monthlyPayment: function (principle, months, iRate) {
-        return principle * iRate * (Math.pow(1 + iRate, months)) / (Math.pow(1 + iRate, months) - 1);
-    }
-};
-					</code></pre>
+                <ul>
+                    <li>Do use tool based updates.</li>
+                    <li>https://www.npmjs.com/package/npm-check-updates</li>
+                </ul>
                 <aside class="notes">
-                    We're going to go with some pretty simple code, but your project can be as complex as any.
+                    There are now multiple tools you can use to both analyze your dependencies before update, and to
+                    automate
+                    the update in a more compatible way.
                 </aside>
+
             </section>
-            <section>
-                <h5>3. Publish (NPM or Nexus)</h5>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-$ npm login
-Username: georgefrick
-Password: $$$$$$$$$$$$$$$$$$$
-Email: (this IS public) george.frick@gmail.com
-Logged in as georgefrick on https://registry.npmjs.org/.
 
-$ npm publish
-+ gjf-utils@1.0.0
-
-					</code></pre>
-                <aside class="notes">
-                    We're going to publish to NPM here, but you can publish to a private Nexus, JFrog, Azure, etc.
-                </aside>
-            </section>
-            <section>
-                <h5>3.b. Publish to Nexus</h5>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-{
-  "name": "gjf-utils",
-  "version": "1.0.0",
-  "description": "An example utility package.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "publishConfig": {
-    "registry": "http://nexus.nvisia.com:8081/repository/npm-private/"
-  }
-  "author": "George Frick",
-  "license": "ISC"
-}
-
-					</code></pre>
-                <aside class="notes">
-                    You can publish to nexus by specifying the publishing registry.
-                    You can edit the .npmrc file to change the registry you download from, including proxying.
-                </aside>
-            </section>
-            <section>
-                <h5>4. Use</h5>
-                <pre width="90%"><code class="hljs" data-trim contenteditable>
-$ npm install gjf-utils
-
-    var test = require('gjf-utils');
-
-    var M; //monthly mortgage payment
-    var P = 400000; //principle / initial amount borrowed
-    var I = 3.5 / 100 / 12; //monthly interest rate
-    var N = 30 * 12; //number of payments months
-    M = test.monthlyPayment(P, N, I);
-
-    console.log(test.hello());
-    console.log(M);
-					</code></pre>
-                <aside class="notes">
-                    You can publish to nexus by specifying the publishing registry.
-                    You can edit the .npmrc file to change the registry you download from, including proxying.
-                </aside>
-            </section>
         </section>
 
         <section style="text-align: left;">
@@ -955,9 +706,11 @@ $ npm install gjf-utils
             <ul>
                 <li>Plan based on needs.</li>
                 <li>Use best practices.</li>
+                <li>Build capabilities in layers.</li>
                 <li>Continue to learn!</li>
                 <li style="font-style: italic">http://webdevchecklist.com</li>
             </ul>
+<!--            <p>Find a sustainable balance for your budget, team, org size, timeline, users,and legalities, etc.</p>-->
             <p>
                 Questions?
             </p>
