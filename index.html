@@ -23,7 +23,7 @@
 
     <!-- Printing and PDF exports -->
     <script>
-        var link = document.createElement('link');
+        const link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
@@ -72,9 +72,9 @@
 
         <!-- Who am i? -->
         <section data-background="content/Milwaukee-skyline.png">
-            <iframe src="content/deep-blue/george_cv.html" width="800" height="583"
-                    frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
-                    style=" max-height: 583px; max-width: 1024px;"></iframe>
+            <iframe frameborder="0" height="583" marginheight="0"
+                    marginwidth="0" scrolling="no" src="content/deep-blue/george_cv.html" style=" max-height: 583px; max-width: 1024px;"
+                    width="800"></iframe>
             <aside class="notes">
                 I'm George Frick, a Principal Architect at Nvisia and a Milwaukee native. -introduce yourself-
             </aside>
@@ -82,7 +82,7 @@
 
         <section>
             <h1>sus·tain·a·ble</h1>
-            <p>
+
             <h4>adjective</h4>
             <ol>
                 <li>Able to be maintained at a certain rate or level.<br/>
@@ -92,7 +92,7 @@
                     <span class="vk_gy">"sustainable definitions of good educational practice"</span>
                 </li>
             </ol>
-            </p>
+
             <aside class="notes">
                 <ul>
                     <li>What do I mean by Sustainable?</li>
@@ -106,14 +106,14 @@
 
         <section>
             <h1>Why?</h1>
-            <p>
+
             <ol>
                 <li>Avoid Churn.</li>
                 <li>Beat The Learning Curve.</li>
                 <li>Reliable, Scalable, and Maintainable.</li>
                 <li>Credibility.</li>
             </ol>
-            </p>
+
             <aside class="notes">
                 <ul>
                     <li>New app - large portion of time on foundations: security, layout, build process</li>
@@ -142,34 +142,6 @@
             </aside>
         </section>
 
-        <section data-background="content/blocks.jpg">
-            <h1>Front End Architecture</h1>
-            <p>
-            <h4 class="fragment mg_top">“a collection of tools and processes that aim to improve the quality of our
-                front-end code while creating a more efficient and sustainable workflow.” - <span class="vk_gy">Micah Godbolt</span>
-            </h4>
-
-            </p>
-            <aside class="notes">
-                <ul>
-                    <li> So.. front end architecture. What is it?</li>
-                    <li>We don't want the tools to become the master.</li>
-                    <li>We are going to use architecture, to be sustainable.</li>
-                </ul>
-                <ul>
-                    <li>make more complete decisions at the beginning of a project</li>
-                    <li>we have to consider our front end architecture the same
-                        way we do for our services
-                    </li>
-                    <li>We then have to follow that up, with good habits while developing.</li>
-                    <li>The goal is for the framework to be a layer in your architecture, and not the container for
-                        it.
-                    </li>
-                </ul>
-            </aside>
-
-        </section>
-
         <section>
             <h3>Architecture For Sustainability</h3>
             <ol>
@@ -189,11 +161,9 @@
         </section>
 
         <section>
-            <section>
-                <h1 style="  white-space: nowrap;">1. Components</h1>
-                <aside class="notes">
-                    Not completely comprehensive, but covers the most important. For more details, use webdevchecklist.
-                </aside>
+            <section data-background="content/coding-person.jpg">
+                <h1 style="white-space: nowrap;">1. Components</h1>
+                <h4 class=" mg_top">“If only we had thought about that earlier in the project.”</h4>
             </section>
 
             <section>
@@ -317,11 +287,11 @@
                     <li>Anyone can have a temporary impairment</li>
                 </ul>
                 <aside class="notes">
-                    <li>1 in 5 people have a legal officially recognized permanent disability</li>
-                    https://www.slideshare.net/AshleyDzick/intro-to-web-accessibility-117687372
+                    <p>1 in 5 people have a legal officially recognized permanent disability</p>
+                    <p>https://www.slideshare.net/AshleyDzick/intro-to-web-accessibility-117687372</p>
                     <p>
                         I can give you a link to a great accessibility intro, there is also a great intro
-                        available on youtube from this year's Gophercon.
+                        available on youtube from the 2018 Gophercon.
                     </p>
                 </aside>
             </section>
@@ -363,9 +333,10 @@
         </section>
 
         <section>
-            <section>
+            <section data-background="content/coding-board.jpg">
                 <h1>2. Approach</h1>
-
+                <h4 class=" mg_top">“Pick the right tool for the job.”</h4>
+                <h5 class=" mg_top"> “Don't build an F1 car when you need a Corolla.”</h5>
                 <aside class="notes">
                     Let's finally talk frameworks. Maybe your project is small and you don't have any special
                     requirements.
@@ -383,9 +354,7 @@
                         <li class="fragment">What is your plan when a third party changes something?</li>
                         <li class="fragment">What is the planned lifetime of the project?</li>
                     </ul>
-
                 </aside>
-
             </section>
 
             <section>
@@ -423,9 +392,7 @@
 
                     While many people will use mocking tools; I prefer to build out a static website -
                     users can see navigation and get a feel for how they’ll use the app.
-
                 </aside>
-
             </section>
 
             <section>
@@ -469,7 +436,6 @@
                     cycle and don't worry about what the front
                     end is allowed to do.
                 </aside>
-
             </section>
 
             <section>
@@ -603,21 +569,20 @@
         </section>
 
         <section>
-        <section data-background="content/coding-screen.jpg">
-            <h1>3. Best Practices</h1>
-            <p>
-            <h4 class=" mg_top">“commercial or professional procedures that are accepted or prescribed as being
-                correct or most effective.”
-            </h4>
+            <section data-background="content/coding-screen.jpg">
+                <h1>3. Best Practices</h1>
+                <h4 class=" mg_top">“commercial or professional procedures that are accepted or prescribed as being
+                    correct or most effective.”
+                </h4>
 
-            </p>
-            <aside class="notes">
-                Now that we've talked about the some concerns around architecture, let's review some specific actions we
-                can take in projects and as an organization. I'm
-                going to show you some
-                actions you can take to improve future and existing projects.
-            </aside>
-        </section>
+                <aside class="notes">
+                    Now that we've talked about the some concerns around architecture, let's review some specific
+                    actions we
+                    can take in projects and as an organization. I'm
+                    going to show you some
+                    actions you can take to improve future and existing projects.
+                </aside>
+            </section>
             <section>
                 <h2>Don't Inline Logic</h2>
                 <ul>
@@ -632,7 +597,6 @@
             </section>
             <section>
                 <h2>Build Libraries</h2>
-                <p>
                 <ul>
                     <li>Code Reuse & Sharing</li>
                     <li>Independence</li>
@@ -640,7 +604,6 @@
                     <li>Proper Retirement</li>
                     <li>Future Planning</li>
                 </ul>
-                </p>
                 <aside class="notes">
                     <ul>
                         <li>Code Reuse - across projects and frameworks and the frontend/backend.</li>
@@ -661,42 +624,64 @@
             </section>
             <section>
                 <h2>Manage Dependencies</h2>
-                <p>
                 <ul>
                     <li>Monday morning headaches</li>
                     <li>Broken CI Pipelines</li>
                     <li>Dependency Hell</li>
+                    <li>Consider:
+                        <ul>
+                            <li>Is it tested, actively maintained, and solves a complete problem?</li>
+                            <li>Do use tool based updates.</li>
+                            <li>https://www.npmjs.com/package/npm-check-updates</li>
+                        </ul>
+                    </li>
                 </ul>
-
-                </p>
                 <aside class="notes">
+                    <li>Can it be found as part of a larger, more useful library.</li>
+                    <li>Can be found as part of a smaller, more specific library.</li>
                     For each library, helper, tool, or API you bring into your application, you are adding a dependency.
-                </aside>
-                <h2>Don't use it.</h2>
-                <p>
-                <ul>
-                    <li>Is it actively maintained?</li>
-                    <li>How is it tested?</li>
-                    <li>Does it solve a complete set of problems?</li>
-                    <li>It can be found as part of a larger, more useful library.</li>
-                    <li>It can be found as part of a smaller, more specific library.</li>
-                </ul>
-
-                </p>
-
-                <aside class="notes">
-                    For each library, helper, tool, or API you bring into your application, you are adding a dependency.
-                </aside>
-                <ul>
-                    <li>Do use tool based updates.</li>
-                    <li>https://www.npmjs.com/package/npm-check-updates</li>
-                </ul>
-                <aside class="notes">
                     There are now multiple tools you can use to both analyze your dependencies before update, and to
                     automate
                     the update in a more compatible way.
                 </aside>
+            </section>
 
+            <section>
+                <h2>State Management</h2>
+                <ul>
+                    <li>React, Angular, and Vue oh my!</li>
+                    <li>Redux, NGRX, NGXS, Immutable.js</li>
+                    <li>No matter what you choose, consistently store state in one place.</li>
+                </ul>
+                <aside class="notes">
+                    Notes here on using redux, etc.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Compliance & Release Automation</h2>
+                <ul>
+                    <li>Standardize commit messages.</li>
+                    <li>Automate versioning and release notes.</li>
+                    <li>Enjoy a readable git log.</li>
+                    <li>Provide traceability from business to deployed code.</li>
+                </ul>
+                <aside class="notes">
+                    Notes here on using commitizen, etc.
+                </aside>
+            </section>
+
+            <section>
+                <h2>Plan Short & Long Term</h2>
+                <ul>
+                    <li>Can't stop and do "everything".</li>
+                    <li>Collaborate!</li>
+                    <li>Meet on a regular basis.</li>
+                    <li>Meetups, NORT, Conferences, Books, and online training.</li>
+                </ul>
+                <aside class="notes">
+                    Notes here on planning.
+                </aside>
             </section>
 
         </section>
@@ -705,12 +690,13 @@
             <h1>Summary</h1>
             <ul>
                 <li>Plan based on needs.</li>
+                <li>YAGNI - You aren't gonna need it.</li>
                 <li>Use best practices.</li>
                 <li>Build capabilities in layers.</li>
                 <li>Continue to learn!</li>
                 <li style="font-style: italic">http://webdevchecklist.com</li>
             </ul>
-<!--            <p>Find a sustainable balance for your budget, team, org size, timeline, users,and legalities, etc.</p>-->
+            <!--            <p>Find a sustainable balance for your budget, team, org size, timeline, users,and legalities, etc.</p>-->
             <p>
                 Questions?
             </p>
@@ -769,13 +755,6 @@
 
 </script>
 
-
-<script>
-    if (!navigator.userAgent.match(/(iphone|android)/gi) && !!document.querySelector) {
-        document.querySelector('.share-reveal').style.display = 'block';
-        document.querySelector('.fork-reveal').style.display = 'block';
-    }
-</script>
 
 </body>
 </html>
